@@ -35,6 +35,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.9.0\lib\net462\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,16 +49,80 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FrmNhacungcap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmNhacungcap.Designer.cs">
+      <DependentUpon>FrmNhacungcap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTaohoadon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTaohang.Designer.cs">
+      <DependentUpon>FrmTaohoadon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmChinhsuanhaphang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChinhsuanhaphang.Designer.cs">
+      <DependentUpon>FrmChinhsuanhaphang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNhaphang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNhaphang.Designer.cs">
+      <DependentUpon>FrmNhaphang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHoadon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHoadon.Designer.cs">
+      <DependentUpon>frmHoadon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmKhachhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKhachhang.Designer.cs">
+      <DependentUpon>FrmKhachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQly.Designer.cs">
+      <DependentUpon>FrmQly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HoaDonNhapKho.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FrmChinhsuanhaphang.resx">
+      <DependentUpon>FrmChinhsuanhaphang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHoadon.resx">
+      <DependentUpon>frmHoadon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKhachhang.resx">
+      <DependentUpon>FrmKhachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNhacungcap.resx">
+      <DependentUpon>FrmNhacungcap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNhaphang.resx">
+      <DependentUpon>FrmNhaphang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQly.resx">
+      <DependentUpon>FrmQly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTaohoadon.resx">
+      <DependentUpon>FrmTaohoadon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -65,7 +132,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,6 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quanlysieuthi.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

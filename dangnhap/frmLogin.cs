@@ -9,17 +9,51 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace dangnhap
 {
-    public partial class Form1 : Form
+    public partial class frmLogin : Form
     {
+       
         private string connectionString = "Data Source=NGUYE\\MANHCHI;Initial Catalog=netcuoiki;Integrated Security=True;Encrypt=True";
-        public Form1()
+        private string maHoaDonNK;
+        public frmLogin(string ma)
         {
             InitializeComponent();
+            maHoaDonNK = ma;
         }
+        public int GetUserId(string username, string password)
+        {
+            using (var conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string sql = "SELECT UserID FROM [Users] WHERE Username = @username AND Password = @password";
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("@password", password);
 
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            return Convert.ToInt32(result);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi: {ex.Message}", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            return 0;
+        }
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -65,6 +99,7 @@ namespace dangnhap
         {
             string username = txtdangnhap.Text; // Input from "Tên Đăng Nhập"
             string password = txtdangky.Text; // Input from "Mật Khẩu"
+            int userId = GetUserId(username, password);
 
             // Check if the user exists in the database
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -88,6 +123,10 @@ namespace dangnhap
                         if (count == 1)
                         {
                             MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                           
+                            this.Hide();
+                            FrmQly frm = new FrmQly(userId, maHoaDonNK);
+                            frm.Show();
                         }
                         else
                         {
@@ -98,6 +137,10 @@ namespace dangnhap
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi kết nối: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
         }
