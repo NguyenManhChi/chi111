@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnNCC = new System.Windows.Forms.Button();
             this.btnNhaphang = new System.Windows.Forms.Button();
             this.btnDangxuat = new System.Windows.Forms.Button();
             this.btnQuanlyhoadon = new System.Windows.Forms.Button();
             this.btnQuanlykhachhang = new System.Windows.Forms.Button();
             this.lbUser = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.btnNCC = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(354, 598);
             this.panel1.TabIndex = 0;
+            // 
+            // btnNCC
+            // 
+            this.btnNCC.Location = new System.Drawing.Point(3, 244);
+            this.btnNCC.Name = "btnNCC";
+            this.btnNCC.Size = new System.Drawing.Size(347, 57);
+            this.btnNCC.TabIndex = 5;
+            this.btnNCC.Text = "Nhà cung cấp";
+            this.btnNCC.UseVisualStyleBackColor = true;
+            this.btnNCC.Click += new System.EventHandler(this.btnNCC_Click);
             // 
             // btnNhaphang
             // 
@@ -106,21 +116,11 @@
             // button3
             // 
             this.button3.Image = global::dangnhap.Properties.Resources.quanlysieuthi;
-            this.button3.Location = new System.Drawing.Point(376, 65);
+            this.button3.Location = new System.Drawing.Point(376, 71);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(613, 459);
             this.button3.TabIndex = 1;
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // btnNCC
-            // 
-            this.btnNCC.Location = new System.Drawing.Point(3, 244);
-            this.btnNCC.Name = "btnNCC";
-            this.btnNCC.Size = new System.Drawing.Size(347, 57);
-            this.btnNCC.TabIndex = 5;
-            this.btnNCC.Text = "Nhà cung cấp";
-            this.btnNCC.UseVisualStyleBackColor = true;
-            this.btnNCC.Click += new System.EventHandler(this.btnNCC_Click);
             // 
             // FrmQly
             // 
